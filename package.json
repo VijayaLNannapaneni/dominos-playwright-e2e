@@ -1,0 +1,20 @@
+{
+  "name": "dominos-ecommerce",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+  "test": "npx cucumber-js --require-module ts-node/register --require 'features/**/*.ts' --require 'support/**/*.ts'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.3.0",
+    "@playwright/test": "^1.53.2",
+    "@types/node": "^24.0.10",
+    "dotenv": "^17.0.1",    
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
