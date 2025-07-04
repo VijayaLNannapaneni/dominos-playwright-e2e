@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-  "test": "npx cucumber-js --require-module ts-node/register --require 'features/**/*.ts' --require 'support/**/*.ts' --format json:reports/cucumber_report.json",
-  "report": "npx ts-node generate-report.ts",
-  "test:report": "npm run test && npm run report"
+    "clean": "rm -rf dist",
+    "test": "npx cucumber-js --require-module ts-node/register --require 'features/**/*.ts' --require 'support/**/*.ts' --format json:reports/cucumber_report.json",
+    "report": "npx ts-node generate-report.ts",
+    "test:report": "npm run test && npm run report"
   },
   "keywords": [],
   "author": "Vijaya Nannapaneni",
