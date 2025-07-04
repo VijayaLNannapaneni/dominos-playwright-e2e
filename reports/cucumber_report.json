@@ -1,0 +1,128 @@
+[
+  {
+    "description": "  As a customer\n  I want to navigate the Domino's homepage\n  So that I can order pizza",
+    "elements": [
+      {
+        "description": "",
+        "id": "domino's-homepage;",
+        "keyword": "Scenario",
+        "line": 7,
+        "name": "",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 660795700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "I navigate to the Dominos homepage",
+            "match": {
+              "location": "features\\step-definitions\\homepage-steps.ts:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1727279099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "I should see the correct page title",
+            "match": {
+              "location": "features\\step-definitions\\homepage-steps.ts:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 103587399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 10,
+            "name": "I accept cookies if present",
+            "match": {
+              "location": "features\\step-definitions\\homepage-steps.ts:21"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 38943300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "I click on the \"ORDER ONLINE\" button",
+            "match": {
+              "location": "features\\step-definitions\\homepage-steps.ts:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 728700199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 12,
+            "name": "I should be redirected to the order page",
+            "match": {
+              "location": "features\\step-definitions\\homepage-steps.ts:39"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17183799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "I close the browser",
+            "match": {
+              "location": "features\\step-definitions\\homepage-steps.ts:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 132336099
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 499960600
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@smoke",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "domino's-homepage",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Domino's Homepage",
+    "tags": [
+      {
+        "name": "@smoke",
+        "line": 1
+      }
+    ],
+    "uri": "features\\homepage.feature"
+  }
+]
