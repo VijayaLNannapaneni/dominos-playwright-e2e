@@ -3,17 +3,21 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-  "test": "npx cucumber-js --require-module ts-node/register --require 'features/**/*.ts' --require 'support/**/*.ts'"
+    "clean": "rm -rf dist",
+    "test": "npx cucumber-js --require-module ts-node/register --require 'features/**/*.ts' --require 'support/**/*.ts' --format json:reports/cucumber_report.json",
+    "report": "npx ts-node generate-report.ts",
+    "test:report": "npm run test && npm run report"
   },
   "keywords": [],
-  "author": "",
+  "author": "Vijaya Nannapaneni",
   "license": "ISC",
   "description": "",
   "devDependencies": {
     "@cucumber/cucumber": "^11.3.0",
     "@playwright/test": "^1.53.2",
     "@types/node": "^24.0.10",
-    "dotenv": "^17.0.1",    
+    "dotenv": "^17.0.1",
+    "multiple-cucumber-html-reporter": "^3.9.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }

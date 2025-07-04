@@ -1,3 +1,12 @@
 # .gitattributes
 
 * text=auto
+# Treat these as binary (no line ending conversion)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.svg binary
+*.eot binary
+*.ttf binary
+*.woff binary
+*.woff2 binary
