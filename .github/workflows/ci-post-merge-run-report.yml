@@ -20,7 +20,10 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
+        
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps 
+        
       - name: Run tests and generate report
         run: npm run test:report  # Make sure this generates the report
 
