@@ -24,11 +24,16 @@ jobs:
       - name: Run tests and generate report
         run: npm run test:report  # Make sure this generates the report
 
+      - name: Debug - List report files
+        run: |
+          echo "Listing contents of report folder..."
+          ls -la reports/html-report  
+
       - name: Upload test report as artifact (optional)
         uses: actions/upload-artifact@v4
         with:
           name: post-merge-cucumber-report
-          path: C:\Dominos-playwright\dominos-ecommerce\reports\html-report\index.html  # Example: cucumber-html-report/
+          path: reports/html-report/index.html  # Example: cucumber-html-report/
 
       # Optional: Copy report to another folder or upload externally
       - name: Deploy to GitHub Pages
