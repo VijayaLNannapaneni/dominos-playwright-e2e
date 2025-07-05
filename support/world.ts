@@ -14,7 +14,7 @@ setWorldConstructor(CustomWorldImpl);
 // Hooks to launch and close browser for each scenario
 
 Before(async function (this: CustomWorldImpl) {
-  browser = await chromium.launch({ headless: false });
+  browser = await chromium.launch({ headless: true });
 
   this.page = await browser.newPage();
   this.poManager = new POManager(this.page);
