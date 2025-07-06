@@ -26,6 +26,12 @@ jobs:
 
       - name: Run tests and generate report
         run: npm run test:report  
+        
+      - name: Debug - Show report HTML content
+        run: |
+          echo "----- Start of report HTML -----"
+          head -n 40 reports/html-report/index.html
+          echo "----- End of report HTML preview -----"
 
       - name: Debug - List report files
         run: |
