@@ -36,8 +36,14 @@ jobs:
       - name: Debug - List report files
         run: |
           echo "Listing contents of report folder..."
-          ls -la reports/html-report  
-
+          ls -la reports/html-report 
+          
+      - name: Check if report exists
+        run: test -f reports/html-report/index.html && echo "Report exists" || (echo "Report missing!" && exit 1)
+      
+      - name: Create .nojekyll to bypass Jekyll processing
+        run: touch reports/html-report/.nojekyll
+        
       - name: Upload test report as artifact (optional)
         uses: actions/upload-artifact@v4
         with:
