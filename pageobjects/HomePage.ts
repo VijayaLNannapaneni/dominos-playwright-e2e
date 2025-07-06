@@ -61,11 +61,11 @@ export class HomePage {
   }
 
   async clickOrderOnline() {
-  console.log('Waiting for ORDER ONLINE button...');
-  await this.onlineOrderButton.waitFor({ state: 'visible', timeout: 10000 });
-  console.log('Clicking ORDER ONLINE button');
-  await this.onlineOrderButton.click();
-
+    console.log('Waiting for ORDER ONLINE button...');
+    await this.onlineOrderButton.waitFor({ state: 'visible', timeout: 6000 });
+    console.log('Clicking ORDER ONLINE button');
+    await this.onlineOrderButton.click();
+  }
   async verifyOnlineOrderHeader() {
     await expect(this.onlineOrderHeader).toBeVisible();
     await expect(this.onlineOrderHeader).toHaveText("START YOUR ORDER");
