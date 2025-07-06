@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-  "clean": "rm -rf dist reports docs",
-  "test": "npx cucumber-js --require-module ts-node/register --require 'features/**/*.ts' --require 'support/**/*.ts' --format json:reports/cucumber_report.json",
-  "report": "npx ts-node generate-report.ts",
-  "test:report": "npm run test && npm run report",
-  "prepare:docs": "rm -rf docs && mkdir -p docs && cp -r reports/html-report/* docs/ && echo '' > docs/.nojekyll"
+    "clean": "rm -rf dist",
+    "test": "npx cucumber-js --require-module ts-node/register --require 'features/**/*.ts' --require 'support/**/*.ts' --format json:reports/cucumber_report.json",
+    "report": "npx ts-node generate-report.ts",
+    "test:report": "npm run test && npm run report"
   },
   "keywords": [],
   "author": "Vijaya Nannapaneni",
