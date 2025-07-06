@@ -8,7 +8,7 @@
   "report": "npx ts-node generate-report.ts",
   "test:report": "npm run test && npm run report",
   "prepare:docs": "rm -rf docs && mkdir -p docs && cp -r reports/html-report/* docs/ && echo '' > docs/.nojekyll"
-}
+  },
   "keywords": [],
   "author": "Vijaya Nannapaneni",
   "license": "ISC",
