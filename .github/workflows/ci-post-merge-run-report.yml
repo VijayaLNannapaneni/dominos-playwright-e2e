@@ -3,7 +3,7 @@ name: "Post-Merge: Run Tests and Upload Report"
 on:
   push:
     branches:
-      - main  #  Triggers when a PR is merged into main
+      - main  # Triggers when a PR is merged into main
 
 jobs:
   test-report:
@@ -26,29 +26,18 @@ jobs:
 
       - name: Run tests and generate report
         run: npm run test:report  
-        
-      - name: Debug - Show report HTML content
-        run: |
-          echo "----- Start of report HTML -----"
-          head -n 40 reports/html-report/index.html
-          echo "----- End of report HTML preview -----"
 
-      - name: Debug - List report files
-        run: |
-          echo "Listing contents of report folder..."
-          ls -la reports/html-report 
-          
       - name: Check if report exists
-        run: test -f reports/html-report/index.html && echo "Report exists" || (echo "Report missing!" && exit 1)
-      
+        run: test -f reports/html-report/index.html && echo "✅ Report exists" || (echo "❌ Report missing!" && exit 1)
+
       - name: Create .nojekyll to bypass Jekyll processing
         run: touch reports/html-report/.nojekyll
-        
+
       - name: Upload test report as artifact (optional)
         uses: actions/upload-artifact@v4
         with:
-          name: post-merge-cucumber-report
-          path: reports/html-report/index.html  
+          name: cucumber-html-report
+          path: reports/html-report
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -56,5 +45,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./reports/html-report
           publish_branch: gh-pages
-
-  
