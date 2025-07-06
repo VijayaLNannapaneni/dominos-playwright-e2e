@@ -3,7 +3,7 @@ name: "Post-Merge: Run Tests and Upload Report"
 on:
   push:
     branches:
-      - main
+      - main  #  Triggers when a PR is merged into main
 
 jobs:
   test-report:
@@ -20,21 +20,27 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
+      
       - name: Install Playwright browsers
-        run: npx playwright install --with-deps
+        run: npx playwright install --with-deps  
 
       - name: Run tests and generate report
-        run: npm run test:report
+        run: npm run test:report  
 
-      - name: Move report to docs folder
+      - name: Debug - List report files
         run: |
-          rm -rf docs
-          mkdir -p docs
-          cp -r reports/html-report/* docs/
+          echo "Listing contents of report folder..."
+          ls -la reports/html-report  
 
-      - name: Add .nojekyll to docs folder
-        run: echo "" > docs/.nojekyll
+      - name: Upload test report as artifact (optional)
+        uses: actions/upload-artifact@v4
+        with:
+          name: post-merge-cucumber-report
+          path: reports/html-report/index.html  
 
-      - name: List contents of docs folder
-        run: ls -la docs
+      # Optional: Copy report to another folder or upload externally
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./reports/html-report  
