@@ -3,7 +3,7 @@ name: "Post-Merge: Run Tests and Upload Report"
 on:
   push:
     branches:
-      - main  # ✅ Triggers when a PR is merged into main
+      - main  # Triggers when a PR is merged into main
 
 jobs:
   test-report:
@@ -25,7 +25,7 @@ jobs:
         run: npx playwright install --with-deps 
         
       - name: Run tests and generate report
-        run: npm run test:report  # Make sure this generates the report
+        run: npm run test:report  
 
       - name: Debug - List report files
         run: |
