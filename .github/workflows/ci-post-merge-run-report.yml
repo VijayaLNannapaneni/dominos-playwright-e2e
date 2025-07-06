@@ -50,12 +50,11 @@ jobs:
           name: post-merge-cucumber-report
           path: reports/html-report/index.html  
 
-      # Optional: Copy report to another folder or upload externally
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./reports/html-report
           publish_branch: gh-pages
-          destination_dir: .
+
   
