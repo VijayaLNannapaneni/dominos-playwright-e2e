@@ -3,7 +3,8 @@ name: "Post-Merge: Run Tests and Upload Report"
 on:
   push:
     branches:
-      - main  # Triggers when a PR is merged into main
+      - main
+      - git-actions  # 👈 Now also runs on git-actions branch
 
 jobs:
   test-report:
@@ -20,28 +21,19 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-      
+
       - name: Install Playwright browsers
-        run: npx playwright install --with-deps  
+        run: npx playwright install --with-deps
 
       - name: Run tests and generate report
-        run: npm run test:report  
+        run: npm run test:report
 
-      - name: Check if report exists
-        run: test -f reports/html-report/index.html && echo "✅ Report exists" || (echo "❌ Report missing!" && exit 1)
-
-      - name: Create .nojekyll to bypass Jekyll processing
+      - name: Create .nojekyll
         run: touch reports/html-report/.nojekyll
 
-      - name: Upload test report as artifact (optional)
-        uses: actions/upload-artifact@v4
-        with:
-          name: cucumber-html-report
-          path: reports/html-report
-
-      - name: Deploy to GitHub Pages
+      - name: Deploy full report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./reports/html-report
           publish_branch: gh-pages
+          publish_dir: ./reports/html-report
