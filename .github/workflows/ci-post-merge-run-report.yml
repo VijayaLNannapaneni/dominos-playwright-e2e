@@ -26,6 +26,13 @@ jobs:
         
       - name: Run tests and generate report
         run: npm run test:report  
+        
+      - name: Debug - Confirm files before deploy
+        run: |
+          echo "Contents of ./reports/html-report:"
+          ls -la ./reports/html-report
+          echo "Index file size:"
+          stat ./reports/html-report/index.html || echo "index.html missing"
 
       - name: Debug - List report files
         run: |
