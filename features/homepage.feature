@@ -11,3 +11,9 @@ Feature: Domino's Homepage
     Then I click on the "ORDER ONLINE" button
     Then I should be redirected to the order page
     Then I close the browser
+
+
+  Scenario: Customer can see current promotions
+  Given I navigate to the Dominos homepage
+  Then I should see all the deals and promotions 
+  Then I close the browser
