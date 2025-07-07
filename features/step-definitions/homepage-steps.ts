@@ -44,6 +44,26 @@ Then('I close the browser', async function (this: CustomWorldImpl) {
   await this.poManager.closeBrowser();
 });
 
+Then('I should see all the deals and promotions', async function (this: CustomWorldImpl) {
+  await this.poManager.getDealsAndPromotions().verifyAllDealsOnTheHomePage();
+});
+
+When('I click on the {string} deal', async function (this: CustomWorldImpl, dealName: string) {
+  if (dealName.toLocaleLowerCase() === "mix and max") {
+    await this.poManager.getDealsAndPromotions().clickMixAndMaxDeal();
+  } else if (dealName.toLocaleLowerCase() === "carryout") {
+    await this.poManager.getDealsAndPromotions().clickCarryOutDeal();
+  } else if (dealName.toLocaleLowerCase() === "best deal ever") {
+    await this.poManager.getDealsAndPromotions().clickBestDealEver();
+  } else if (dealName.toLocaleLowerCase() === "perfect combo") {
+    await this.poManager.getDealsAndPromotions().clickPerfectComboDeal();
+  } else if (dealName.toLocaleLowerCase() === "buy 2") {
+    await this.poManager.getDealsAndPromotions().clickBuy2Deal();
+  } else {
+    throw new Error(`Unknown deal: ${dealName}`);
+  }
+});
+
 function Before(arg0: () => Promise<void>) {
   throw new Error("Function not implemented.");
 }
